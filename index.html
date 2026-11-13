@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cibling | Ultra-Luxury Bakery &amp; Artisanal Confectionery</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navyCharcoal: {
+                            deep: '#070B14',
+                            dark: '#0E1320',
+                            DEFAULT: '#182232',
+                            slate: '#2B384A',
+                            charcoal: '#3F4D63'
+                        },
+                        ivory: {
+                            DEFAULT: '#FDFBF7',
+                            soft: '#F6F0E4',
+                            warm: '#EDE2D0',
+                            border: '#D9C5A8'
+                        },
+                        gold: {
+                            light: '#FFFEF0',
+                            DEFAULT: '#FACC15',
+                            rich: '#D97706',
+                            amber: '#F59E0B'
+                        },
+                        amberGlow: {
+                            DEFAULT: '#EA580C',
+                            light: '#FB923C'
+                        }
+                    },
+                    fontFamily: {
+                        cursive: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+                        display: ['"Cinzel"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Deep Slate Charcoal & Dark Navy Background Texture */
+        body {
+            background-color: #070B14;
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.14) 0%, rgba(14, 19, 32, 0.88) 58%, rgba(7, 11, 20, 0.98) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cpattern id='damaskPattern' width='200' height='200' patternUnits='userSpaceOnUse'%3E%3Crect width='200' height='200' fill='%23090F1B'/%3E%3Cg fill='none' stroke='%231E2A3D' stroke-width='1.35' opacity='0.75'%3E%3Cpath d='M100 15 C120 38, 142 38, 150 60 C158 82, 134 98, 100 102 C66 98, 42 82, 50 60 C58 38, 80 38, 100 15 Z'/%3E%3Cpath d='M100 185 C120 162, 142 162, 150 140 C158 118, 134 102, 100 98 C66 102, 42 118, 50 140 C58 162, 80 162, 100 185 Z'/%3E%3Cpath d='M15 100 C38 80, 38 58, 60 50 C82 42, 98 66, 102 100 C98 134, 82 158, 60 150 C38 142, 38 120, 15 100 Z'/%3E%3Cpath d='M185 100 C162 80, 162 58, 140 50 C118 42, 102 66, 98 100 C102 134, 118 158, 140 150 C162 142, 162 120, 185 100 Z'/%3E%3Ccircle cx='100' cy='100' r='14' fill='%23131C2D'/%3E%3Ccircle cx='100' cy='100' r='30' stroke-dasharray='4 3'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23damaskPattern)'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            color: #FDFBF7;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Canvas Particle Background */
+        #sparkle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Golden Cursive Shimmer for 'cibling' */
+        .gold-cursive-shimmer {
+            background: linear-gradient(135deg, #FFFEF0 0%, #FACC15 25%, #F59E0B 50%, #D97706 75%, #FFFEF0 100%);
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineGold 5s linear infinite;
+            filter: drop-shadow(0 6px 22px rgba(250, 204, 21, 0.48));
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gold-cursive-shimmer:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes shineGold {
+            to {
+                background-position: 250% center;
+            }
+        }
+
+        /* Click Starburst Particle Effect */
+        .starburst-particle {
+            position: absolute;
+            pointer-events: none;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle, #FFFEF0 0%, #FACC15 60%, transparent 100%);
+            border-radius: 50%;
+            animation: burstStar 0.75s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            box-shadow: 0 0 14px #FACC15;
+            z-index: 60;
+        }
+
+        @keyframes burstStar {
+            0% { transform: translate(0, 0) scale(1.2); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0.2); opacity: 0; }
+        }
+
+        /* 3D Card Tilt Physics Container */
+        .tilt-card-container {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .tilt-card {
+            background: linear-gradient(160deg, #FDFBF7 0%, #F6F0E4 72%, #EDE2D0 100%);
+            color: #182232;
+            border: 1.5px solid rgba(250, 204, 21, 0.45);
+            box-shadow: 0 18px 40px -10px rgba(4, 7, 14, 0.7);
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            will-change: transform;
+        }
+
+        .tilt-card:hover {
+            border-color: #FACC15;
+            box-shadow: 0 28px 56px -12px rgba(4, 7, 14, 0.88), 0 0 28px rgba(250, 204, 21, 0.3);
+        }
+
+        /* Specular Light Sheen Overlay on Card */
+        .card-sheen {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.45) 0%, transparent 65%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .tilt-card:hover .card-sheen {
+            opacity: 1;
+        }
+
+        /* Fly-to-Cart Flying Thumbnail Animation */
+        .flying-thumb {
+            position: fixed;
+            z-index: 999;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #FACC15;
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.6);
+            pointer-events: none;
+            animation: flyToCart 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes flyToCart {
+            0% {
+                transform: translate(var(--startX), var(--startY)) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(calc((var(--startX) + var(--endX)) / 2), calc(var(--startY) - 120px)) scale(1.1) rotate(180deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(var(--endX), var(--endY)) scale(0.15) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Catalogue Section Slide & Staggered Animations */
+        .section-slide-right {
+            animation: sectionSlideRight 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .section-slide-left {
+            animation: sectionSlideLeft 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes sectionSlideRight {
+            0% { opacity: 0; transform: translateX(65px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes sectionSlideLeft {
+            0% { opacity: 0; transform: translateX(-65px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .card-stagger-entrance {
+            opacity: 0;
+            transform: translateY(28px) scale(0.95);
+            animation: cardEntrance 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes cardEntrance {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Panels & Buttons */
+        .navy-charcoal-panel {
+            background: linear-gradient(145deg, #182232 0%, #0E1320 60%, #070B14 100%);
+            border: 1px solid rgba(250, 204, 21, 0.28);
+            color: #FDFBF7;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+        }
+
+        .btn-amber-gold {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #EA580C 100%);
+            color: #FFFEF0;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(234, 88, 12, 0.4);
+        }
+
+        .btn-amber-gold:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-charcoal-amber {
+            background: linear-gradient(135deg, #182232 0%, #0E1320 100%);
+            color: #FDFBF7;
+            border: 1px solid rgba(250, 204, 21, 0.5);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-charcoal-amber:hover {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #070B14;
+            border-color: #FACC15;
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.35);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #070B14; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #F59E0B, #3F4D63); border-radius: 9999px; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-navyCharcoal-deep relative z-10">
+
+    <!-- Interactive Canvas Particle Background -->
+    <canvas id="sparkle-canvas"></canvas>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-20 right-4 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-[#070B14]/92 backdrop-blur-md border-b border-gold/20 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#top" class="flex items-center gap-2 group">
+                <span onclick="triggerStarburst(event)" class="font-cursive text-3xl sm:text-4xl gold-cursive-shimmer tracking-wide pr-2">cibling</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7 text-xs sm:text-sm font-medium tracking-wider uppercase text-ivory/90">
+                <a href="#catalogue" class="hover:text-gold transition-colors">9 Collections</a>
+                <a href="#artisan-craft" class="hover:text-gold transition-colors">Artisanal Craft</a>
+                <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer" 
+                   aria-label="Visit cibling on Instagram"
+                   class="flex items-center gap-2 px-3.5 py-2 rounded-full navy-charcoal-panel hover:border-gold text-ivory hover:text-gold transition-all text-xs sm:text-sm">
+                    <i class="fa-brands fa-instagram text-base sm:text-lg text-gold"></i>
+                    <span class="hidden sm:inline font-medium">@getsite01</span>
+                </a>
+
+                <button id="cart-btn-trigger" onclick="toggleCartDrawer(true)" 
+                        class="relative flex items-center gap-2 px-4 py-2 rounded-full bg-ivory hover:bg-white text-navyCharcoal-deep font-bold border border-gold/60 shadow-md text-xs sm:text-sm transition-all">
+                    <i class="fa-solid fa-basket-shopping text-base text-amberGlow"></i>
+                    <span class="hidden sm:inline">Cart</span>
+                    <span id="cart-badge" class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-bold rounded-full bg-navyCharcoal-dark text-gold">
+                        0
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="top" class="relative pt-12 pb-20 sm:pt-20 sm:pb-30 px-4 overflow-hidden border-b border-gold/20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] sm:w-[620px] sm:h-[620px] rounded-full bg-gradient-to-tr from-amber-500/15 via-orange-600/10 to-navyCharcoal/20 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ivory border border-gold/70 text-navyCharcoal-deep text-xs font-bold tracking-[0.2em] uppercase mb-6 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-amberGlow animate-ping"></span>
+                Ultra-Luxury Patisserie &amp; Confectionery
+            </div>
+
+            <!-- Cursive Title with Starburst Tap -->
+            <div class="my-6 select-none relative inline-block" onclick="triggerStarburst(event)" title="Tap to burst golden star particles!">
+                <h1 class="font-cursive text-7xl sm:text-9xl md:text-[10rem] gold-cursive-shimmer leading-none drop-shadow-2xl">
+                    cibling
+                </h1>
+                <p class="font-display text-xs sm:text-sm tracking-[0.45em] uppercase text-ivory/85 mt-3">
+                    Bespoke Cakes, Artisanal Breads &amp; Gourmet Sweets
+                </p>
+            </div>
+
+            <p class="max-w-2xl mx-auto text-ivory/85 text-sm sm:text-base md:text-lg font-light leading-relaxed mt-4 px-2">
+                Explore our 9 expanded signature catalogues crafted with European butter, organic vanilla beans, and decadent Belgian chocolate.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="#catalogue" class="px-7 py-3.5 rounded-full btn-amber-gold text-sm sm:text-base tracking-wide shadow-xl flex items-center gap-2">
+                    <span>Explore All 9 Collections</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+                <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer" 
+                   class="px-7 py-3.5 rounded-full navy-charcoal-panel hover:border-gold text-ivory font-semibold transition-all text-sm sm:text-base flex items-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-instagram text-gold text-lg"></i>
+                    <span>DM @getsite01</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9-Section Catalogue with 3D Tilt Physics & Slide Animations -->
+    <section id="catalogue" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-gold font-display text-xs tracking-[0.25em] uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-cake-candles text-gold"></i> Premium Curated Lookbook
+                </span>
+                <h2 class="font-cursive text-5xl sm:text-6xl gold-cursive-shimmer mt-1">9 Section-Wise Catalogues</h2>
+            </div>
+            <p class="text-xs sm:text-sm text-ivory/85 flex items-center gap-2 navy-charcoal-panel px-3.5 py-2 rounded-full border border-gold/30">
+                <i class="fa-solid fa-arrows-left-right text-gold"></i>
+                <span>Tap tabs or swipe horizontally to switch sections</span>
+            </p>
+        </div>
+
+        <!-- Category Tabs Bar (9 Expanded Sections) -->
+        <div class="flex items-center justify-between gap-2 mb-8 bg-ivory p-2 rounded-2xl border-2 border-gold/60 shadow-2xl">
+            <button onclick="stepCategory(-1)" aria-label="Previous Section"
+                    class="p-2.5 sm:px-3.5 rounded-xl bg-navyCharcoal-dark hover:bg-amberGlow text-ivory hover:text-white transition-colors shrink-0 shadow">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 w-full justify-start sm:justify-center">
+                <!-- Injected via JS -->
+            </div>
+
+            <button onclick="stepCategory(1)" aria-label="Next Section"
+                    class="p-2.5 sm:px-3.5 rounded-xl bg-navyCharcoal-dark hover:bg-amberGlow text-ivory hover:text-white transition-colors shrink-0 shadow">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Active Section Banner -->
+        <div id="section-banner" class="mb-6 flex items-center justify-between border-b border-ivory/20 pb-3">
+            <div class="flex items-center gap-3">
+                <span id="section-icon" class="w-9 h-9 rounded-xl navy-charcoal-panel flex items-center justify-center text-gold text-sm shadow">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </span>
+                <h3 id="active-section-title" class="font-display text-lg sm:text-xl text-ivory tracking-wider uppercase">
+                    Signature Cakes
+                </h3>
+            </div>
+            <span id="product-count-label" class="text-xs px-3.5 py-1.5 rounded-full navy-charcoal-panel text-gold font-bold border border-gold/40 shadow">
+                0 Items
+            </span>
+        </div>
+
+        <!-- Product Grid Viewport -->
+        <div id="catalogue-viewport" class="relative overflow-hidden min-h-[440px]" style="perspective: 1200px;">
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Cards rendered dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisanal Showcase Banner -->
+    <section id="artisan-craft" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="rounded-3xl bg-gradient-to-br from-[#FDFBF7] via-[#F6F0E4] to-[#EDE2D0] text-navyCharcoal-deep border-2 border-gold/70 p-7 sm:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-72 h-72 rounded-full bg-amber-500/10 blur-2xl pointer-events-none"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <div class="lg:col-span-7">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-navyCharcoal-dark text-gold text-xs font-bold uppercase tracking-wider mb-3 shadow">
+                        Master Patissier Quality
+                    </span>
+                    <h3 class="font-cursive text-4xl sm:text-5xl text-navyCharcoal-deep mb-3">Custom Wedding Cakes &amp; Instant DM Orders</h3>
+                    <p class="text-navyCharcoal text-sm sm:text-base leading-relaxed max-w-2xl">
+                        Add items from any of our 9 collections into your shopping bag and check out instantly via Instagram DM. Delivered fresh with temperature-controlled packaging.
+                    </p>
+                </div>
+                <div class="lg:col-span-5 navy-charcoal-panel rounded-2xl p-6 flex flex-col gap-3">
+                    <p class="text-xs uppercase tracking-widest text-gold font-semibold">Express Boutique Checkout</p>
+                    <button onclick="toggleCartDrawer(true)" class="w-full py-3.5 px-5 rounded-xl bg-ivory hover:bg-white text-navyCharcoal-deep font-bold text-center shadow-lg transition-all">
+                        <i class="fa-solid fa-basket-shopping mr-2 text-amberGlow"></i>Open Shopping Bag
+                    </button>
+                    <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer"
+                       class="w-full py-3.5 px-5 rounded-xl btn-amber-gold text-center transition-all shadow-md">
+                        <i class="fa-brands fa-instagram mr-2 text-lg"></i>Message @getsite01
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-gold/20 bg-[#070B14]/90">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-gold font-display text-xs tracking-[0.28em] uppercase">Get In Touch</span>
+            <h2 class="font-cursive text-5xl sm:text-6xl gold-cursive-shimmer mt-2 mb-4">Connect With cibling</h2>
+            <p class="text-ivory/80 text-sm sm:text-base max-w-xl mx-auto mb-8">
+                Have custom tiered cake inquiries, high-end event catering, or bulk dessert orders? Reach out directly to our official Instagram page.
+            </p>
+
+            <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-5 sm:p-6 rounded-3xl tilt-card">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-3xl shadow-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="text-center sm:text-left">
+                    <p class="text-xs uppercase tracking-widest text-amber-700 font-bold">Official Instagram Boutique</p>
+                    <p class="text-lg sm:text-xl font-extrabold text-navyCharcoal-deep">@getsite01</p>
+                    <p class="text-xs text-navyCharcoal">Tap below to open our Instagram profile directly</p>
+                </div>
+                <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer"
+                   class="sm:ml-4 px-6 py-3 rounded-xl btn-charcoal-amber text-sm whitespace-nowrap shadow">
+                    Open Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-xs text-gold"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0E1320] via-[#182232] to-[#0E1320] border-t border-gold/30 py-8 px-4 text-center text-xs text-ivory/80">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="font-cursive text-2xl gold-cursive-shimmer">cibling</div>
+            <p>&copy; 2026 cibling Luxury Bakery &amp; Confectionery. All Rights Reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">
+                    Instagram
+                </a>
+                <span class="text-ivory/30">|</span>
+                <!-- Private Owner Trigger -->
+                <button onclick="openOwnerAuthModal()" class="text-ivory/60 hover:text-gold transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-md hover:bg-black/20" title="Private Owner Access">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                    <span>Owner</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Instagram Button -->
+    <a href="https://www.instagram.com/getsite01" target="_blank" rel="noopener noreferrer"
+       aria-label="Chat on Instagram"
+       class="fixed bottom-5 right-5 z-30 w-13 h-13 p-3.5 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white shadow-2xl hover:scale-110 transition-transform flex items-center justify-center border-2 border-ivory">
+        <i class="fa-brands fa-instagram text-2xl"></i>
+    </a>
+
+    <!-- Cart Drawer -->
+    <div id="cart-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/75 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-ivory text-navyCharcoal-deep border-l-2 border-gold/60 z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+        <div class="p-5 border-b border-gold/30 flex items-center justify-between bg-navyCharcoal-dark text-ivory">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-basket-shopping text-gold text-xl"></i>
+                <h3 class="font-display text-lg font-bold text-ivory tracking-wider">Your Shopping Bag</h3>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="p-2 rounded-lg text-ivory/80 hover:text-gold hover:bg-navyCharcoal-slate">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4 bg-ivory">
+            <!-- Injected via JS -->
+        </div>
+
+        <div class="p-5 border-t border-navyCharcoal/15 bg-ivory-warm space-y-4">
+            <div class="flex items-center justify-between text-sm text-navyCharcoal">
+                <span>Express Delivery</span>
+                <span class="text-amberGlow font-bold">Complimentary Packaging</span>
+            </div>
+            <div class="flex items-center justify-between text-lg font-bold text-navyCharcoal-deep">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="text-amberGlow text-xl font-extrabold">₹0</span>
+            </div>
+
+            <button onclick="checkoutViaInstagram()" id="checkout-btn"
+                    class="w-full py-3.5 px-4 rounded-xl btn-charcoal-amber text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg disabled:opacity-40 disabled:pointer-events-none">
+                <i class="fa-brands fa-instagram text-lg text-gold"></i>
+                <span>Order via Instagram DM (@getsite01)</span>
+            </button>
+            <p class="text-[11px] text-center text-navyCharcoal">
+                Copies your order &amp; opens <span class="font-bold text-amberGlow">@getsite01</span> on Instagram.
+            </p>
+        </div>
+    </aside>
+
+    <!-- Owner Authentication Modal -->
+    <div id="owner-auth-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="w-full max-w-sm rounded-2xl bg-ivory text-navyCharcoal-deep border-2 border-gold p-6 shadow-2xl relative">
+            <button onclick="closeOwnerAuthModal()" class="absolute top-4 right-4 text-navyCharcoal hover:text-navyCharcoal-deep p-1">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center mb-5">
+                <div class="w-12 h-12 rounded-full bg-navyCharcoal-dark border border-gold flex items-center justify-center mx-auto mb-3 text-gold shadow">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h3 class="font-display text-lg font-bold text-navyCharcoal-deep">Private Owner Login</h3>
+                <p class="text-xs text-navyCharcoal mt-1">Enter your secret passcode to access Admin Studio</p>
+            </div>
+
+            <form onsubmit="verifyOwnerPassword(event)" class="space-y-4">
+                <div>
+                    <input type="password" id="owner-password-input" required autocomplete="off"
+                           placeholder="••••"
+                           class="w-full px-4 py-3 rounded-xl bg-white border border-navyCharcoal/25 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep text-center tracking-[0.4em] text-lg font-bold">
+                </div>
+                <p id="auth-error-msg" class="text-xs text-rose-600 font-semibold text-center hidden">
+                    Access Denied. Incorrect passcode.
+                </p>
+                <button type="submit" class="w-full py-3 rounded-xl btn-charcoal-amber text-sm tracking-wide shadow">
+                    Unlock Admin Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Private Admin Panel Modal -->
+    <div id="admin-panel-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="w-full max-w-5xl rounded-3xl bg-ivory text-navyCharcoal-deep border-2 border-gold shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+            <div class="p-5 sm:p-6 bg-navyCharcoal-dark text-ivory border-b border-gold/40 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-gold animate-pulse"></span>
+                    <div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-gold">cibling — Private Admin Studio</h3>
+                        <p class="text-xs text-ivory/80">Manage all 9 catalogue sections &amp; secure owner passcode</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="resetDefaultCatalogue()" class="px-3 py-1.5 rounded-lg bg-navyCharcoal-slate hover:bg-amberGlow text-xs text-ivory border border-ivory/20 transition-colors" title="Restore default items">
+                        Reset Defaults
+                    </button>
+                    <button onclick="closeAdminPanel()" class="p-2 rounded-lg bg-navyCharcoal-slate text-ivory hover:text-gold transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-5 sm:p-6 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-6 bg-ivory">
+                <!-- Left Column: Add Product & Change Password -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white/95 p-5 rounded-2xl border border-navyCharcoal/15 shadow-sm">
+                        <h4 class="font-display text-sm uppercase tracking-wider text-amberGlow font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-plus-circle text-amber-600"></i> Add Item to Catalogue
+                        </h4>
+                        <form id="add-product-form" onsubmit="handleAddProduct(event)" class="space-y-3 text-sm">
+                            <div>
+                                <label class="block text-xs font-semibold text-navyCharcoal mb-1">Item Title *</label>
+                                <input type="text" id="prod-title" required placeholder="e.g., Grand Gold Tier Cake"
+                                       class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-semibold text-navyCharcoal mb-1">Catalogue Section *</label>
+                                    <select id="prod-category" required
+                                            class="w-full px-3 py-2.5 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep text-xs">
+                                        <option value="Signature Cakes">Signature Cakes</option>
+                                        <option value="Wedding & Tiered Cakes">Wedding & Tiered Cakes</option>
+                                        <option value="Artisanal Breads">Artisanal Breads</option>
+                                        <option value="French Pastries & Croissants">French Pastries & Croissants</option>
+                                        <option value="Gourmet Cupcakes & Muffins">Gourmet Cupcakes & Muffins</option>
+                                        <option value="Belgian Truffles & Chocolates">Belgian Truffles & Chocolates</option>
+                                        <option value="Savory Puffs & Quiches">Savory Puffs & Quiches</option>
+                                        <option value="Macarons & Cookies">Macarons & Cookies</option>
+                                        <option value="Luxury Beverages">Luxury Beverages</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-navyCharcoal mb-1">Price (INR ₹) *</label>
+                                    <input type="number" id="prod-price" required min="1" placeholder="699"
+                                           class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navyCharcoal mb-1">Badge Tag (Optional)</label>
+                                <input type="text" id="prod-tag" placeholder="e.g., Bestseller, Chef Special, New"
+                                       class="w-full px-3.5 py-2 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep text-xs">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navyCharcoal mb-1">Image URL (or Upload File)</label>
+                                <input type="url" id="prod-image-url" placeholder="https://images.unsplash.com/..."
+                                       class="w-full px-3.5 py-2 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep text-xs">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navyCharcoal mb-1">Or Upload Local Image File</label>
+                                <input type="file" id="prod-image-file" accept="image/*"
+                                       class="w-full text-xs text-navyCharcoal file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-navyCharcoal-dark file:text-gold hover:file:bg-amberGlow cursor-pointer">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-navyCharcoal mb-1">Short Description *</label>
+                                <textarea id="prod-desc" rows="2" required placeholder="Delicious layers..."
+                                          class="w-full px-3.5 py-2 rounded-xl bg-ivory-soft border border-navyCharcoal/20 focus:border-amberGlow focus:outline-none text-navyCharcoal-deep text-xs"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3 rounded-xl btn-charcoal-amber font-bold shadow-md mt-1">
+                                <i class="fa-solid fa-cloud-arrow-up mr-1.5 text-gold"></i> Publish to Menu
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Change Admin Password Card -->
+                    <div class="navy-charcoal-panel p-5 rounded-2xl border border-gold/40">
+                        <h4 class="font-display text-sm uppercase tracking-wider text-gold font-bold mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-key"></i> Change Admin Password
+                        </h4>
+                        <p class="text-[11px] text-ivory/75 mb-4">Update your private owner login passcode anytime (Default: 5911).</p>
+                        
+                        <form id="change-password-form" onsubmit="handleChangeAdminPassword(event)" class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-semibold text-ivory/90 mb-1">Current Password *</label>
+                                <input type="password" id="current-admin-pass" required autocomplete="off" placeholder="Enter current password"
+                                       class="w-full px-3.5 py-2.5 rounded-xl bg-navyCharcoal-deep/90 border border-ivory/20 focus:border-gold focus:outline-none text-ivory">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <div>
+                                    <label class="block font-semibold text-ivory/90 mb-1">New Password *</label>
+                                    <div class="relative">
+                                        <input type="password" id="new-admin-pass" required minlength="4" autocomplete="off" placeholder="New passcode"
+                                               class="w-full px-3.5 py-2.5 rounded-xl bg-navyCharcoal-deep/90 border border-ivory/20 focus:border-gold focus:outline-none text-ivory pr-8">
+                                        <button type="button" onclick="togglePassVisibility('new-admin-pass', this)" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-ivory/60 hover:text-gold">
+                                            <i class="fa-solid fa-eye text-xs"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block font-semibold text-ivory/90 mb-1">Confirm New *</label>
+                                    <input type="password" id="confirm-admin-pass" required minlength="4" autocomplete="off" placeholder="Repeat passcode"
+                                           class="w-full px-3.5 py-2.5 rounded-xl bg-navyCharcoal-deep/90 border border-ivory/20 focus:border-gold focus:outline-none text-ivory">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full py-2.5 rounded-xl btn-amber-gold text-xs font-bold shadow mt-1">
+                                <i class="fa-solid fa-shield-check mr-1.5"></i> Save New Passcode
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: Inventory List -->
+                <div class="lg:col-span-7 bg-white/95 p-5 rounded-2xl border border-navyCharcoal/15 shadow-sm flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-display text-sm uppercase tracking-wider text-amberGlow font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-amber-600"></i> Catalogue Inventory
+                        </h4>
+                        <span id="admin-total-count" class="text-xs font-bold px-3 py-1 rounded-full bg-navyCharcoal-dark text-gold">0 Items</span>
+                    </div>
+
+                    <div id="admin-product-list" class="space-y-3 overflow-y-auto max-h-[640px] pr-1">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // --- 1. CANVAS PARTICLE BACKGROUND ANIMATION ---
+        const canvas = document.getElementById('sparkle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        for (let i = 0; i < 45; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2.2 + 0.8,
+                color: Math.random() > 0.4 ? 'rgba(250, 204, 21, ' : 'rgba(245, 158, 11, ',
+                alpha: Math.random() * 0.7 + 0.2,
+                speedY: -(Math.random() * 0.4 + 0.1),
+                speedX: (Math.random() - 0.5) * 0.3,
+                pulse: Math.random() * 0.02 + 0.005
+            });
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.y += p.speedY;
+                p.x += p.speedX;
+                p.alpha += Math.sin(Date.now() * p.pulse) * 0.008;
+                p.alpha = Math.max(0.1, Math.min(0.85, p.alpha));
+
+                if (p.y < -10) p.y = canvas.height + 10;
+                if (p.x < -10) p.x = canvas.width + 10;
+                if (p.x > canvas.width + 10) p.x = -10;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + p.alpha + ')';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#FACC15';
+                ctx.fill();
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // --- 2. EXPANDED 9-SECTION CATALOGUE DATA ---
+        const DEFAULT_PRODUCTS = [
+            // 1. Signature Cakes
+            { id: 'c-401', title: 'Imperial Dark Chocolate Ganache Cake', category: 'Signature Cakes', price: 1399, tag: 'Bestseller', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80', description: 'Three-tier rich dark chocolate sponge layered with silky ganache and edible 24k gold leaf.' },
+            { id: 'c-402', title: 'Belgian Truffle Celebration Cake', category: 'Signature Cakes', price: 1150, tag: 'Chef Special', image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80', description: 'Decadent cocoa sponge coated in glossy Belgian chocolate glaze with praline crunch.' },
+            { id: 'c-403', title: 'Velvet Rose Cream Cake', category: 'Signature Cakes', price: 1099, tag: 'New', image: 'https://images.unsplash.com/photo-1586788224321-542a3449f87b?auto=format&fit=crop&w=800&q=80', description: 'Classic red velvet layers with cream cheese frosting and handmade edible sugar petals.' },
+
+            // 2. Wedding & Tiered Cakes
+            { id: 'c-404', title: 'Grand Royal 4-Tier Wedding Cake', category: 'Wedding & Tiered Cakes', price: 4899, tag: 'Masterpiece', image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80', description: 'Magnificent multi-tiered white fondant cake decorated with cascade sugar peonies and gold filigree.' },
+            { id: 'c-405', title: 'Vintage Pearl Tiered Cake', category: 'Wedding & Tiered Cakes', price: 3799, tag: 'Elegant', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80', description: 'Exquisite ivory tiered cake adorned with edible pearl borders and champagne buttercream.' },
+
+            // 3. Artisanal Breads
+            { id: 'c-406', title: 'Rustic Fermented Sourdough Loaf', category: 'Artisanal Breads', price: 349, tag: 'Artisanal', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', description: 'Naturally leavened sourdough bread with a deeply caramelized crust and airy crumb.' },
+            { id: 'c-407', title: 'French Brioche Loaf', category: 'Artisanal Breads', price: 320, tag: 'Buttery', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80', description: 'Rich, golden brioche enriched with European cultured butter and free-range eggs.' },
+            { id: 'c-408', title: 'Rosemary Garlic Focaccia', category: 'Artisanal Breads', price: 380, tag: 'Freshly Baked', image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80', description: 'Olive oil-drenched Italian flatbread topped with fresh rosemary sprigs and sea salt.' },
+
+            // 4. French Pastries & Croissants
+            { id: 'c-409', title: 'Classic Pure Butter Croissant', category: 'French Pastries & Croissants', price: 199, tag: 'Flaky', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80', description: 'Traditional golden laminated pastry made with authentic French butter.' },
+            { id: 'c-410', title: 'Almond Cream Croissant', category: 'French Pastries & Croissants', price: 250, tag: 'Bestseller', image: 'https://images.unsplash.com/photo-1621236378699-8299fb6ab134?auto=format&fit=crop&w=800&q=80', description: 'Twice-baked croissant filled with rich almond frangipane and toasted sliced almonds.' },
+            { id: 'c-411', title: 'Pain au Chocolat', category: 'French Pastries & Croissants', price: 220, tag: 'Chocolaty', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', description: 'Flaky golden pastry wrapped around two sticks of premium dark chocolate.' },
+
+            // 5. Gourmet Cupcakes & Muffins
+            { id: 'c-412', title: 'Salted Caramel Cupcake', category: 'Gourmet Cupcakes & Muffins', price: 180, tag: 'Sweet', image: 'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&w=800&q=80', description: 'Vanilla bean sponge with a molten salted caramel core and buttercream frosting.' },
+            { id: 'c-413', title: 'Wild Blueberry Jumbo Muffin', category: 'Gourmet Cupcakes & Muffins', price: 160, tag: 'Fruity', image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80', description: 'Fluffy muffin packed with plump wild blueberries and crunchy streusel top.' },
+
+            // 6. Belgian Truffles & Chocolates
+            { id: 'c-414', title: 'Artisanal Pralines Box (12 Pcs)', category: 'Belgian Truffles & Chocolates', price: 899, tag: 'Gift Box', image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80', description: 'Handcrafted assortment of hazelnut gianduja, pistachio, and espresso chocolates.' },
+            { id: 'c-415', title: '24k Gold Dusted Truffles', category: 'Belgian Truffles & Chocolates', price: 1099, tag: 'Exclusive', image: 'https://images.unsplash.com/photo-1526318896980-cf78c08b247c?auto=format&fit=crop&w=800&q=80', description: 'Velvety dark chocolate truffles hand-rolled and finished with edible gold leaf.' },
+
+            // 7. Savory Puffs & Quiches
+            { id: 'c-416', title: 'Smoked Paneer Tikka Puff', category: 'Savory Puffs & Quiches', price: 149, tag: 'Savory', image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80', description: 'Flaky golden puff pastry stuffed with spiced tandoori paneer filling.' },
+            { id: 'c-417', title: 'Wild Mushroom & Cheese Quiche', category: 'Savory Puffs & Quiches', price: 289, tag: 'Gourmet', image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80', description: 'Shortcrust pastry tartlet filled with sautéed mushrooms, gruyere cheese, and herbs.' },
+
+            // 8. Macarons & Cookies
+            { id: 'c-418', title: 'French Macaron Gift Collection (6 Pcs)', category: 'Macarons & Cookies', price: 599, tag: 'Atelier Pick', image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=800&q=80', description: 'Delicate almond meringue shells with raspberry, passionfruit, and dark chocolate ganache.' },
+            { id: 'c-419', title: 'Belgian Choc-Chunk Cookie Jar', category: 'Macarons & Cookies', price: 399, tag: 'Crunchy', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80', description: 'Buttery cookies loaded with chunks of dark and milk Belgian chocolate.' },
+
+            // 9. Luxury Beverages
+            { id: 'c-420', title: 'Artisanal Iced Spanish Latte', category: 'Luxury Beverages', price: 299, tag: 'Refreshing', image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80', description: 'Double-shot espresso layered with sweetened condensed milk and cold-brewed milk.' },
+            { id: 'c-421', title: 'Belgian Hot Chocolate Elixir', category: 'Luxury Beverages', price: 340, tag: 'Warmth', image: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80', description: 'Thick, melted 70% dark Belgian chocolate served with toasted marshmallows.' }
+        ];
+
+        const CATEGORIES = [
+            { name: 'Signature Cakes', icon: 'fa-cake-candles' },
+            { name: 'Wedding & Tiered Cakes', icon: 'fa-ring' },
+            { name: 'Artisanal Breads', icon: 'fa-bread-slice' },
+            { name: 'French Pastries & Croissants', icon: 'fa-croissant' },
+            { name: 'Gourmet Cupcakes & Muffins', icon: 'fa-muffin' },
+            { name: 'Belgian Truffles & Chocolates', icon: 'fa-gift' },
+            { name: 'Savory Puffs & Quiches', icon: 'fa-cookie-bite' },
+            { name: 'Macarons & Cookies', icon: 'fa-cookie' },
+            { name: 'Luxury Beverages', icon: 'fa-mug-hot' }
+        ];
+
+        const STORAGE_KEY_PRODUCTS = 'cibling_bakery_products_v3';
+        const STORAGE_KEY_CART = 'cibling_bakery_cart_v3';
+        const STORAGE_KEY_ADMIN_PASS = 'cibling_bakery_admin_pass_v1';
+        const DEFAULT_ADMIN_PASS = '5911';
+
+        // --- 3. STATE ---
+        let products = JSON.parse(localStorage.getItem(STORAGE_KEY_PRODUCTS)) || [...DEFAULT_PRODUCTS];
+        let cart = JSON.parse(localStorage.getItem(STORAGE_KEY_CART)) || [];
+        let activeCategoryIndex = 0;
+        let isAdminUnlocked = false;
+
+        function getAdminPasscode() {
+            return localStorage.getItem(STORAGE_KEY_ADMIN_PASS) || DEFAULT_ADMIN_PASS;
+        }
+
+        function saveProducts() {
+            localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+        }
+
+        function saveCart() {
+            localStorage.setItem(STORAGE_KEY_CART, JSON.stringify(cart));
+        }
+
+        // --- 4. TAP STARBURST EFFECT ---
+        function triggerStarburst(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const cx = e.clientX || (rect.left + rect.width / 2);
+            const cy = e.clientY || (rect.top + rect.height / 2);
+
+            for (let i = 0; i < 18; i++) {
+                const star = document.createElement('div');
+                star.className = 'starburst-particle';
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 110;
+                const tx = Math.cos(angle) * distance + 'px';
+                const ty = Math.sin(angle) * distance + 'px';
+                star.style.setProperty('--tx', tx);
+                star.style.setProperty('--ty', ty);
+                star.style.left = (cx - window.scrollX) + 'px';
+                star.style.top = (cy - window.scrollY) + 'px';
+                document.body.appendChild(star);
+                setTimeout(() => star.remove(), 750);
+            }
+        }
+
+        // --- 5. CATALOGUE NAVIGATION & 3D TILT PHYSICS ---
+        function renderCategoryTabs() {
+            const container = document.getElementById('category-tabs');
+            container.innerHTML = CATEGORIES.map((cat, idx) => {
+                const isActive = idx === activeCategoryIndex;
+                return `
+                    <button onclick="selectCategory(${idx})"
+                            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-300 flex items-center gap-2 ${
+                                isActive
+                                    ? 'btn-charcoal-amber shadow-md scale-105'
+                                    : 'text-navyCharcoal hover:text-navyCharcoal-deep hover:bg-black/5'
+                            }">
+                        <i class="fa-solid ${cat.icon} text-xs ${isActive ? 'text-gold' : 'text-amber-600'}"></i>
+                        <span>${cat.name}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectCategory(newIndex) {
+            if (newIndex === activeCategoryIndex) return;
+            const direction = newIndex > activeCategoryIndex ? 'right' : 'left';
+            activeCategoryIndex = newIndex;
+            renderCategoryTabs();
+            renderProducts(direction);
+        }
+
+        function stepCategory(delta) {
+            const total = CATEGORIES.length;
+            const nextIndex = (activeCategoryIndex + delta + total) % total;
+            const direction = delta > 0 ? 'right' : 'left';
+            activeCategoryIndex = nextIndex;
+            renderCategoryTabs();
+            renderProducts(direction);
+        }
+
+        function renderProducts(slideDirection = 'right') {
+            const grid = document.getElementById('product-grid');
+            const titleEl = document.getElementById('active-section-title');
+            const iconEl = document.getElementById('section-icon');
+            const countEl = document.getElementById('product-count-label');
+
+            const currentCatObj = CATEGORIES[activeCategoryIndex];
+            const currentCat = currentCatObj.name;
+
+            titleEl.textContent = currentCat;
+            iconEl.innerHTML = `<i class="fa-solid ${currentCatObj.icon}"></i>`;
+
+            const filtered = products.filter(p => p.category === currentCat);
+            countEl.textContent = `${filtered.length} ${filtered.length === 1 ? 'Item' : 'Items'}`;
+
+            grid.classList.remove('section-slide-right', 'section-slide-left');
+            void grid.offsetWidth;
+            grid.classList.add(slideDirection === 'right' ? 'section-slide-right' : 'section-slide-left');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center tilt-card rounded-3xl p-8">
+                        <i class="fa-solid fa-cake-candles text-3xl text-amber-600 mb-3"></i>
+                        <h4 class="font-display text-lg font-bold text-navyCharcoal-deep">No Items in ${currentCat} Yet</h4>
+                        <p class="text-xs text-navyCharcoal mt-1">Freshly baked items coming soon.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map((product, index) => {
+                const staggerDelay = Math.min(index * 70, 550);
+                return `
+                <div style="animation-delay: ${staggerDelay}ms;" class="tilt-card-container card-stagger-entrance">
+                    <article class="tilt-card rounded-2xl overflow-hidden flex flex-col justify-between h-full group"
+                             onmousemove="handleCardTilt(event, this)"
+                             onmouseleave="resetCardTilt(this)">
+                        <div class="card-sheen"></div>
+                        <div>
+                            <div class="relative h-60 overflow-hidden bg-navyCharcoal-dark">
+                                <img src="${product.image}" 
+                                     alt="${escapeHtml(product.title)}"
+                                     id="img-${product.id}"
+                                     onerror="this.onerror=null;this.src='https://placehold.co/600x700/182232/FACC15?text=cibling';"
+                                     class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+
+                                <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-navyCharcoal-dark/90 backdrop-blur-md text-[11px] font-semibold text-gold border border-gold/45 shadow">
+                                    ${escapeHtml(product.category)}
+                                </span>
+
+                                ${product.tag ? `
+                                <span class="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-md bg-ivory/95 text-navyCharcoal-deep text-[10px] font-extrabold uppercase tracking-wider border border-gold/60 shadow">
+                                    ${escapeHtml(product.tag)}
+                                </span>
+                                ` : ''}
+                            </div>
+
+                            <div class="p-5">
+                                <h4 class="font-display text-base font-bold text-navyCharcoal-deep group-hover:text-amberGlow transition-colors">
+                                    ${escapeHtml(product.title)}
+                                </h4>
+                                <p class="text-xs text-navyCharcoal mt-2 line-clamp-2 leading-relaxed">
+                                    ${escapeHtml(product.description)}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-5 pb-5 pt-3 flex items-center justify-between border-t border-navyCharcoal/15 bg-white/50">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-navyCharcoal font-bold block">Price</span>
+                                <span class="text-lg font-extrabold text-amber-700">₹${Number(product.price).toLocaleString('en-IN')}</span>
+                            </div>
+                            <button onclick="addToCartWithFlyAnimation(event, '${product.id}')"
+                                    class="px-4 py-2.5 rounded-xl btn-charcoal-amber text-xs flex items-center gap-2 shadow active:scale-95">
+                                <i class="fa-solid fa-cart-plus text-gold"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            `}).join('');
+        }
+
+        // 3D Card Tilt Physics Handler
+        function handleCardTilt(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            
+            const dx = x - xc;
+            const dy = y - yc;
+            
+            const tiltX = (dy / yc) * -10;
+            const tiltY = (dx / xc) * 10;
+            
+            card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+            card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+            card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+        }
+
+        function resetCardTilt(card) {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        }
+
+        // Touch Swipe Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const viewport = document.getElementById('catalogue-viewport');
+        viewport.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        viewport.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 55) {
+                stepCategory(diff > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        // --- 6. FLY-TO-CART ARC ANIMATION & SHOPPING CART ---
+        function addToCartWithFlyAnimation(e, productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            // Trigger Fly-to-Cart Thumbnail
+            const imgEl = document.getElementById(`img-${productId}`);
+            const cartBtn = document.getElementById('cart-btn-trigger');
+
+            if (imgEl && cartBtn) {
+                const imgRect = imgEl.getBoundingClientRect();
+                const cartRect = cartBtn.getBoundingClientRect();
+
+                const flyer = document.createElement('img');
+                flyer.src = product.image;
+                flyer.className = 'flying-thumb';
+                flyer.style.setProperty('--startX', `${imgRect.left + imgRect.width / 2 - 32}px`);
+                flyer.style.setProperty('--startY', `${imgRect.top + imgRect.height / 2 - 32}px`);
+                flyer.style.setProperty('--endX', `${cartRect.left + cartRect.width / 2 - 32}px`);
+                flyer.style.setProperty('--endY', `${cartRect.top + cartRect.height / 2 - 32}px`);
+                
+                document.body.appendChild(flyer);
+                setTimeout(() => flyer.remove(), 800);
+            }
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            saveCart();
+            updateCartUI();
+            showToast(`Added "${product.title}" to your shopping bag`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index === -1) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            badge.textContent = totalQty;
+            subtotalEl.textContent = `₹${totalAmount.toLocaleString('en-IN')}`;
+            checkoutBtn.disabled = cart.length === 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <div class="w-16 h-16 rounded-full bg-navyCharcoal/10 flex items-center justify-center text-navyCharcoal mb-4">
+                            <i class="fa-solid fa-basket-shopping text-2xl"></i>
+                        </div>
+                        <p class="font-display text-base font-bold text-navyCharcoal-deep">Your Bag is Empty</p>
+                        <p class="text-xs text-navyCharcoal mt-1 max-w-xs">Explore our 9 collections to start your order.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex gap-3.5 p-3 rounded-2xl bg-white border border-navyCharcoal/15 items-center shadow-xs">
+                    <img src="${item.image}" alt="${escapeHtml(item.title)}"
+                         onerror="this.onerror=null;this.src='https://placehold.co/150x150/182232/FACC15?text=cibling';"
+                         class="w-16 h-20 rounded-xl object-cover shrink-0 bg-navyCharcoal-dark">
+                    <div class="flex-1 min-w-0">
+                        <h5 class="text-sm font-bold text-navyCharcoal-deep truncate">${escapeHtml(item.title)}</h5>
+                        <p class="text-xs text-amber-700 font-bold mt-0.5">₹${Number(item.price).toLocaleString('en-IN')}</p>
+                        
+                        <div class="flex items-center gap-2.5 mt-2">
+                            <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 rounded-md bg-ivory-warm text-navyCharcoal-deep hover:bg-navyCharcoal-dark hover:text-gold text-xs font-bold border border-navyCharcoal/20">-</button>
+                            <span class="text-xs font-bold text-navyCharcoal-deep w-4 text-center">${item.qty}</span>
+                            <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 rounded-md bg-ivory-warm text-navyCharcoal-deep hover:bg-navyCharcoal-dark hover:text-gold text-xs font-bold border border-navyCharcoal/20">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" aria-label="Remove item" class="p-2 text-navyCharcoal hover:text-rose-600 transition-colors">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-backdrop');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                requestAnimationFrame(() => { drawer.classList.remove('translate-x-full'); });
+            } else {
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => { backdrop.classList.add('hidden'); }, 300);
+            }
+        }
+
+        function checkoutViaInstagram() {
+            if (cart.length === 0) return;
+
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const lines = cart.map((item, idx) => `${idx + 1}. ${item.title} (x${item.qty}) - ₹${(item.price * item.qty).toLocaleString('en-IN')}`);
+            const summaryText = `Hello cibling bakery (@getsite01)! I would like to place an order:\n\n${lines.join('\n')}\n\nTotal: ₹${totalAmount.toLocaleString('en-IN')}`;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = summaryText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast('Order summary copied! Paste in @getsite01 DM.');
+            } catch (err) {
+                showToast('Opening @getsite01 on Instagram...');
+            }
+            document.body.removeChild(tempInput);
+
+            setTimeout(() => {
+                window.open('https://www.instagram.com/getsite01', '_blank', 'noopener,noreferrer');
+            }, 600);
+        }
+
+        // --- 7. PRIVATE OWNER ADMIN PANEL & PASSCODE MANAGEMENT ---
+        function openOwnerAuthModal() {
+            if (isAdminUnlocked) {
+                openAdminPanel();
+                return;
+            }
+            const modal = document.getElementById('owner-auth-modal');
+            const input = document.getElementById('owner-password-input');
+            const err = document.getElementById('auth-error-msg');
+            input.value = '';
+            err.classList.add('hidden');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function closeOwnerAuthModal() {
+            document.getElementById('owner-auth-modal').classList.add('hidden');
+            document.getElementById('owner-auth-modal').classList.remove('flex');
+        }
+
+        function verifyOwnerPassword(e) {
+            e.preventDefault();
+            const entered = document.getElementById('owner-password-input').value.trim();
+            const err = document.getElementById('auth-error-msg');
+
+            if (entered === getAdminPasscode()) {
+                isAdminUnlocked = true;
+                closeOwnerAuthModal();
+                openAdminPanel();
+                showToast('Welcome Owner. Admin Studio unlocked.');
+            } else {
+                err.classList.remove('hidden');
+                document.getElementById('owner-password-input').value = '';
+                document.getElementById('owner-password-input').focus();
+            }
+        }
+
+        function handleChangeAdminPassword(e) {
+            e.preventDefault();
+            const currentInput = document.getElementById('current-admin-pass').value.trim();
+            const newPass = document.getElementById('new-admin-pass').value.trim();
+            const confirmPass = document.getElementById('confirm-admin-pass').value.trim();
+
+            if (currentInput !== getAdminPasscode()) {
+                showToast('Error: Current password does not match.');
+                return;
+            }
+            if (newPass.length < 4) {
+                showToast('Error: New password must be at least 4 characters.');
+                return;
+            }
+            if (newPass !== confirmPass) {
+                showToast('Error: New passwords do not match.');
+                return;
+            }
+
+            localStorage.setItem(STORAGE_KEY_ADMIN_PASS, newPass);
+            document.getElementById('change-password-form').reset();
+            showToast('Admin passcode updated successfully!');
+        }
+
+        function togglePassVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        function openAdminPanel() {
+            const modal = document.getElementById('admin-panel-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            renderAdminProductList();
+        }
+
+        function closeAdminPanel() {
+            const modal = document.getElementById('admin-panel-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleAddProduct(e) {
+            e.preventDefault();
+            const title = document.getElementById('prod-title').value.trim();
+            const category = document.getElementById('prod-category').value;
+            const price = parseFloat(document.getElementById('prod-price').value);
+            const tag = document.getElementById('prod-tag').value.trim();
+            const urlInput = document.getElementById('prod-image-url').value.trim();
+            const fileInput = document.getElementById('prod-image-file');
+            const description = document.getElementById('prod-desc').value.trim();
+
+            const finalizeProduct = (finalImageUrl) => {
+                const newProduct = {
+                    id: 'c-' + Date.now(),
+                    title,
+                    category,
+                    price,
+                    tag: tag || 'Fresh',
+                    image: finalImageUrl || 'https://placehold.co/600x700/182232/FACC15?text=cibling',
+                    description
+                };
+
+                products.unshift(newProduct);
+                saveProducts();
+                renderProducts('right');
+                renderAdminProductList();
+                document.getElementById('add-product-form').reset();
+                showToast(`Published "${title}" to ${category}!`);
+            };
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) { finalizeProduct(evt.target.result); };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                finalizeProduct(urlInput);
+            }
+        }
+
+        function adminDeleteProduct(productId) {
+            const target = products.find(p => p.id === productId);
+            products = products.filter(p => p.id !== productId);
+            saveProducts();
+
+            cart = cart.filter(c => c.id !== productId);
+            saveCart();
+
+            renderProducts('left');
+            updateCartUI();
+            renderAdminProductList();
+            if (target) {
+                showToast(`Removed "${target.title}" from catalogue.`);
+            }
+        }
+
+        function resetDefaultCatalogue() {
+            products = [...DEFAULT_PRODUCTS];
+            saveProducts();
+            renderProducts('right');
+            renderAdminProductList();
+            showToast('Default bakery items restored.');
+        }
+
+        function renderAdminProductList() {
+            const listContainer = document.getElementById('admin-product-list');
+            const countEl = document.getElementById('admin-total-count');
+            countEl.textContent = `${products.length} Items`;
+
+            if (products.length === 0) {
+                listContainer.innerHTML = `<p class="text-xs text-navyCharcoal text-center py-8">No items in catalogue.</p>`;
+                return;
+            }
+
+            listContainer.innerHTML = products.map(p => `
+                <div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-ivory-soft border border-navyCharcoal/15">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <img src="${p.image}" alt="${escapeHtml(p.title)}"
+                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/182232/FACC15?text=cb';"
+                             class="w-12 h-12 rounded-lg object-cover shrink-0 bg-navyCharcoal-dark">
+                        <div class="min-w-0">
+                            <h5 class="text-xs sm:text-sm font-bold text-navyCharcoal-deep truncate">${escapeHtml(p.title)}</h5>
+                            <div class="flex items-center gap-2 text-[11px] text-navyCharcoal mt-0.5">
+                                <span class="text-amber-700 font-bold">₹${Number(p.price).toLocaleString('en-IN')}</span>
+                                <span>•</span>
+                                <span>${escapeHtml(p.category)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="adminDeleteProduct('${p.id}')"
+                            class="px-3 py-1.5 rounded-lg bg-rose-600/10 hover:bg-rose-600 text-rose-700 hover:text-white border border-rose-600/25 text-xs font-semibold transition-colors shrink-0">
+                        <i class="fa-solid fa-trash mr-1"></i> Remove
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // --- 8. UTILITIES ---
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'px-4 py-3 rounded-xl bg-ivory border-2 border-gold text-navyCharcoal-deep font-semibold text-xs sm:text-sm shadow-2xl flex items-center gap-2.5 transform transition-all duration-300 translate-x-4 opacity-0';
+            toast.innerHTML = `<i class="fa-solid fa-cake-candles text-amber-600"></i><span>${escapeHtml(message)}</span>`;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => { toast.classList.remove('translate-x-4', 'opacity-0'); });
+            setTimeout(() => {
+                toast.classList.add('translate-x-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // --- 9. INITIALIZE ---
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCategoryTabs();
+            renderProducts('right');
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
